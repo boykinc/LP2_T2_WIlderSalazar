@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style=" background-image: url('https://www.solofondos.com/wp-content/uploads/2015/11/fondo.png');
+				background-size: cover;
+				background-repeat: no-repeat;
+				height: 100%;
+				width: 100%; ">
+<div class="container" style="color:white;">
+	<hr>
+    <h2 style="text-align: center;"><em><strong>Registrar Empleado</strong></em></h2>
+  
+    <div th:if="${empleCorrecto}" class="alert alert-danger" role="alert">
+        <span th:text="${empleCorrecto}"></span>
+    </div>
+    <hr>
+  <form class="row g-3" th:action="@{/registrarEmpleado}" th:object="${empleado}" method="post">
+  <div class="col-md-4">
+    <label for="Dni" class="form-label">DNI</label>
+    <input type="text" class="form-control" id="Dni" th:field="*{dniEmple}" placeholder="Ingrese su dni" require>
+  </div>
+
+  <div class="col-md-4">
+    <label for="nombre" class="form-label">Nombres</label>
+    <input type="text" class="form-control" id="nombre" th:field="*{nomEmple}" placeholder="Ingrese sus Nombres" require>
+  </div>
+
+   <div class="col-md-4">
+    <label for="apellido" class="form-label">Apellidos</label>
+    <input type="text" class="form-control" id="apellido" th:field="*{apeEmple}" placeholder="Ingrese sus Apellidos" require>
+  </div>
+
+  <div class="col-md-4">
+  <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+  <input type="text" class="form-control" id="fechaNacimiento" th:field="*{fenacEmple}" placeholder="yy/mm/dd" required>
+  </div>
+  
+    <div class="col-md-4">
+    <label for="direccion" class="form-label">Dirección</label>
+    <input type="text" class="form-control" id="direccion" th:field="*{dirEmple}" placeholder="Ingrese su Dirección" require>
+  </div>
+ 
+  <div class="col-md-6">
+    <label for="correo" class="form-label">Correo Electronico</label>
+    <input  type="email" class="form-control" id="correo" th:field="*{correoEmple}" placeholder="Ingrese su correo electrónico" required>
+  </div>
+ 
+  <div class="col-md-4 position-relative">
+      <label for="areaId">Seleccione su Área:</label>
+      <select  name="itemId" id="areaId" class="form-control" th:field="*{areas.areaId}">
+        <option value="" disabled selected>Selecciona una Área</option>
+        <option th:each="item : ${listaAreas}" th:value="${item.areaId}" th:text="${item.nomArea}"></option>
+      </select>
+    </div> 
+	<div class="col-md-3">
+	<br>
+	
+	
+    <a th:href="@{/listar}" class="btn btn-outline-secondary">Regresar</a>
+    <button type="submit" class="btn btn-outline-primary">Guardar</button>
+	</div>
+ 
+  
+
+	
+</form>
+ <hr>   
+   
+</div>
+</body>
+</html>

@@ -29,7 +29,8 @@ public class EmpleadoEntity {
 	@Column(name = "dni_empleado",
 			nullable = false ,
 			length = 8 ,
-			columnDefinition = "CHAR(8)" )
+			columnDefinition = "CHAR(8)",
+			unique = true)
 	private String dniEmple;
 	
 	@Column(name = "nombre_empleado",

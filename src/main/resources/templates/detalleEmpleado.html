@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD con Thymeleaf y Bootstrap</title>
+    <!-- Estilos de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style=" background-image: url('https://www.solofondos.com/wp-content/uploads/2015/11/fondo.png');
+				background-size: cover;
+				background-repeat: no-repeat;
+				height: 100%;
+				width: 100%; ">
+    <div class="container">
+    	<hr>
+        <h2 style="text-align: center;"><em><strong>Detalles del Empleado</strong></em></h2>
+        <hr>
+        <div >
+          
+            
+             <dl class=" row g-3 needs-validation  border-dark " style="background-color:white;border-radius:20px 5px;">
+             	
+             	
+     			<div class="col-md-4">
+     			<br>
+     			<p class="card-text" th:text="'Nombres: '+ ${emple.nomEmple}"></p>
+     			<hr>
+     			 <p class="card-text" th:text="'Apellidos: '+ ${emple.apeEmple}"></p>
+     			 <hr>
+     			<p class="card-text" th:text="'Dni:' + ${emple.dniEmple}"></p>
+     			<hr>
+             
+                </div>
+     			
+				<div class="col-md-4">
+				<br>
+				<p class="card-text" th:text="'Dirección: ' + ${emple.dirEmple}"></p>
+				<hr>
+				<p class="card-text" th:text="'Correo Electronico: ' + ${emple.correoEmple}"></p>
+				<hr>
+				
+				<br>
+				</div>
+				
+				<div class="col-md-4">
+					<br>
+				   <p class="card-text" th:text="'Fecha de Nacimiento: '+ ${emple.fenacEmple}"></p>
+				   <hr>
+				   <p class="card-text" th:text="'Area: ' + ${emple.areas.nomArea}"></p>
+				<hr>
+				</div>
+
+ 				</dl>
+            
+             
+                
+                <a th:href="@{/listar}" class="btn btn-outline-secondary">Regresar</a>
+                <a th:href="@{/eliminarEmpleado/{dni}(dni=${emple.dniEmple})}" class="btn btn-outline-danger">Eliminar</a>
+            </div>
+    
+    </div>
+    
+    
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
